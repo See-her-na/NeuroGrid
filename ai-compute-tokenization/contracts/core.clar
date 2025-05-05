@@ -22,16 +22,16 @@
 (define-data-var minimum-compute-units uint u1000000) ;; 1 million compute units minimum
 (define-data-var energy-credits uint u0)
 (define-data-var utilization-threshold uint u33) ;; 33% utilization required for optimization
-(define-data-var contract-version (string-utf8 32) "3.0.0")
-(define-data-var contract-name (string-utf8 64) "AI Compute Resources Tokenization Protocol")
+(define-data-var contract-version (string-ascii 32) "3.0.0")
+(define-data-var contract-name (string-ascii 64) "AI Compute Resources Tokenization Protocol")
 
 ;; ===== DATA MAPS =====
 ;; Resource Allocation Structure
 (define-map compute-resources
     uint
     {
-        model-name: (string-utf8 128),
-        specifications: (string-utf8 512),
+        model-name: (string-ascii 128),
+        specifications: (string-ascii 512),
         resource-signature: (buff 32),    ;; SHA256 hash of the resource verification
         optimization-request: uint,        ;; Amount of compute requested for optimization
         usage-confirmed: uint,
