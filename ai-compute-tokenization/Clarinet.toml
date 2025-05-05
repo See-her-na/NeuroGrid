@@ -1,12 +1,10 @@
 [project]
 name = "ai-compute-tokenization"
-description = ""
+description = "AI Compute Resources Tokenization Protocol - Version 3"
 authors = []
-telemetry = true
+telemetry = false
 cache_dir = "./.cache"
-
-# [contracts.counter]
-# path = "contracts/counter.clar"
+requirements = []
 
 [contracts.core]
 path = "contracts/core.clar"
@@ -40,7 +38,8 @@ depends_on = ["core", "admin", "users", "operations"]
 [repl.analysis]
 passes = ["check_checker"]
 
-[repl.analysis]
-passes = ["check_checker"]
-check_checker = { trusted_sender = false, trusted_caller = false, callee_filter = false }
-
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
