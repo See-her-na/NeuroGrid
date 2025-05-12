@@ -1,0 +1,45 @@
+[project]
+name = "ai-compute-tokenization"
+description = "AI Compute Resources Tokenization Protocol - Version 3"
+authors = []
+telemetry = false
+cache_dir = "./.cache"
+requirements = []
+
+[contracts.core]
+path = "contracts/core.clar"
+clarity_version = 2
+epoch = "2.1"
+
+[contracts.admin]
+path = "contracts/admin.clar"
+clarity_version = 2
+epoch = "2.1"
+depends_on = ["core"]
+
+[contracts.users]
+path = "contracts/users.clar"
+clarity_version = 2
+epoch = "2.1"
+depends_on = ["core"]
+
+[contracts.operations]
+path = "contracts/operations.clar"
+clarity_version = 2
+epoch = "2.1"
+depends_on = ["core"]
+
+[contracts.main]
+path = "contracts/main.clar"
+clarity_version = 2
+epoch = "2.1"
+depends_on = ["core", "admin", "users", "operations"]
+
+[repl.analysis]
+passes = ["check_checker"]
+
+[repl.analysis.check_checker]
+strict = false
+trusted_sender = false
+trusted_caller = false
+callee_filter = false
